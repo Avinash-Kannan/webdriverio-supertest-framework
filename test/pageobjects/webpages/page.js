@@ -10,4 +10,7 @@ module.exports = class Page {
     open (path) {
         return browser.url(`https://the-internet.herokuapp.com/${path}`)
     }
+    openAmazon(){
+        return browser.url(`https://www.amazon.in/`)
+    }
 }

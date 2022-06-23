@@ -37,6 +37,12 @@ class LoginPage extends Page {
     open () {
         return super.open('login');
     }
+    /** 
+     * Opens Amazon
+     * */
+    openAmazon () {
+        return super.openAmazon();
+    }
 }
 
 module.exports = new LoginPage();
