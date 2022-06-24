@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/mobilespecs/ios.e2e.js'
+        './test/specs/mobilespecs/mobile.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -57,7 +57,7 @@ exports.config = {
         platformName: "iOS",
         platformVersion: "15.2",
         deviceName: "iPhone 11",
-        app: './app/TestApp.app', 
+        app: './app/VodQAReactNative.app', 
         automationName: "XCUITest",
     }],
     //

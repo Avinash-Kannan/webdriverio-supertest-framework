@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/mobilespecs/android.e2e.js'
+        './test/specs/mobilespecs/mobile.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -57,7 +57,7 @@ exports.config = {
     capabilities: [{
         platformName: "Android",
 		deviceName: "TestEmulator",
-		app: './app/ApiDemos.apk', 
+		app: './app/VodQA.apk', 
 		automationName: "UiAutomator2",
     }],
     //
