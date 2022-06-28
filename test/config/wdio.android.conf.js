@@ -31,7 +31,7 @@ exports.config = {
         // 'path/to/excluded/files'
     ],
 
-    specFileRetries: 1,
+    specFileRetries: 0,
     //
     // ============
     // Capabilities
@@ -207,8 +207,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: async function (capabilities, specs) {
+        //setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad);
+        require('../utils/CustomCommands');
+      },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

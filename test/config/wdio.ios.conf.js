@@ -56,7 +56,7 @@ exports.config = {
     capabilities: [{
         platformName: "iOS",
         platformVersion: "15.2",
-        deviceName: "iPhone 11",
+        deviceName: "iPhone 12 mini",
         app: './app/VodQAReactNative.app', 
         automationName: "XCUITest",
     }],
@@ -196,8 +196,10 @@ exports.config = {
      * @param {Array.<String>} specs        List of spec file paths that are to be run
      * @param {Object}         browser      instance of created browser/device session
      */
-    // before: function (capabilities, specs) {
-    // },
+     before: async function (capabilities, specs) {
+        //setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad);
+        require('../utils/CustomCommands');
+      },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

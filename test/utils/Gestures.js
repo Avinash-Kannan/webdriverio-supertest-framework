@@ -218,4 +218,5 @@ class Gestures {
   }
 }
 
-export default Gestures;
+//module.exports = new Gestures();
+ export default Gestures;

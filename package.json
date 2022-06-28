@@ -28,14 +28,15 @@
         "preregression-test-android": "$ANDROID_HOME/emulator/emulator -verbose @TestEmulator &",
         "regression-test-android": "rm -rf allure-results && npx wdio run ./test/config/wdio.android.conf.js --mochaOpts.grep regression || npm run allure",
         "postregression-test-android": "npm run allure",
-        "pree2e-test-ios": "open -a Simulator --args -CurrentDeviceUDID B0FB8E0E-6657-4747-B4C3-A611005703D1 &",
-        "e2e-test-ios": "rm -rf allure-results && npx wdio run ./test/config/wdio.ios.conf.js --mochaOpts.grep e2e || npm run allure",
-        "poste2etest-ios": "npm run allure",
+        "presmoke-test-ios": "open -a Simulator --args -CurrentDeviceUDID 723461BB-6FD1-4820-9A15-48CEB65B376B &",
+        "smoke-test-ios": "rm -rf allure-results && npx wdio run ./test/config/wdio.ios.conf.js --mochaOpts.grep smoke || npm run allure",
+        "postsmoke-test-ios": "npm run allure",
         "smoke-test-web": "rm -rf allure-results && npx wdio run  ./test/config/wdio.web.conf.js --mochaOpts.grep smoke || npm run allure",
         "postsmoke-test-web": "npm run allure",
         "e2e-test-web": "rm -rf allure-results && npx wdio run  ./test/config/wdio.web.conf.js || npm run allure",
         "poste2e-test-web": "npm run allure",
         "test-api-mochareports": "mocha **/**/api.test.js --reporter mochawesome --reporter-options reportDir=api-test/APITestReport,reportFilename=apiTest",
-        "test-api": "mocha **/**/api.test.js -R allure-mocha && npm run allure"
+        "test-api": "rm -rf allure-results && mocha **/**/api.test.js -R allure-mocha || npm run allure",
+        "posttest-api" : "npm run allure"
     }
 }

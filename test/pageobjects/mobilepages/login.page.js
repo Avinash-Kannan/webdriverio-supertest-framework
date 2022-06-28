@@ -11,7 +11,7 @@ const Locators ={
 
       backBtn: {
         android: '//android.widget.TextView[@text="Back"]',
-        ios: '~Back',
+        ios: '//XCUIElementTypeOther[@name=" Back"]',
       },
 
 };
@@ -22,20 +22,16 @@ const CommonLocators ={
 
 class LoginPage {
 
-    nativeViewOption = driver.isIOS ? Locators.nativeViewOption.ios : Locators.nativeViewOption.android;
-    backBtn = driver.isIOS ? Locators.backBtn.ios : Locators.backBtn.android;
-  
-
     async ClickLoginBtn() {
        await $(CommonLocators.loginBtn).click();
     }
 
     async ClicknativeViewOption() {
-       await $(this.nativeViewOption).click();
+       await $(Locators.nativeViewOption).click();
      }
 
     async ClickBackBtn() {
-      await $(this.backBtn).click();
+      await $(Locators.backBtn).click();
      }
 
 };
