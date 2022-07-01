@@ -24,13 +24,13 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/mobilespecs/mobile.e2e.js'
+        './test/specs/**.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
     ],
-    specFileRetries: 1,
+    specFileRetries: 0,
     //
     // ============
     // Capabilities
@@ -57,7 +57,7 @@ exports.config = {
         platformName: "iOS",
         platformVersion: "15.2",
         deviceName: "iPhone 12 mini",
-        app: './app/VodQAReactNative.app', 
+        app: './app/iOS.Simulator.SauceLabs.Mobile.Sample.app', 
         automationName: "XCUITest",
     }],
     //
@@ -110,7 +110,19 @@ exports.config = {
     services: [
         ['appium', {
             command : 'appium'
-        }]
+        }],[
+            'native-app-compare',
+            // The options
+            {
+                // Mandatory
+                baselineFolder: './test/visualRegression/image-baseline',
+                screenshotPath: './test/visualRegression/image-compare',
+                autoSaveBaseline: false,
+                // Optional
+                blockOutStatusBar: true,
+                // See Options for more options
+                //..
+            },]
     ],
     
     // Framework you want to run your specs with.

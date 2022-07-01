@@ -24,7 +24,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/mobilespecs/mobile.e2e.js'
+        './test/specs/**.e2e.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -57,8 +57,10 @@ exports.config = {
     capabilities: [{
         platformName: "Android",
 		deviceName: "TestEmulator",
-		app: './app/VodQA.apk', 
+		app: './app/Android.SauceLabs.Mobile.Sample.app.2.7.1.apk', 
 		automationName: "UiAutomator2",
+        appPackage: "com.swaglabsmobileapp",
+        appActivity : "com.swaglabsmobileapp.MainActivity",
     }],
     //
     // ===================

@@ -22,8 +22,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/webspecs/Amazon.e2e.js',
-        './test/specs/webspecs/Login.e2e.js' 
+        './test/specs/**.e2e.js'
     ],
 
     // suites: {
@@ -212,6 +211,10 @@ exports.config = {
      */
     // before: function (capabilities, specs) {
     // },
+    before: async function (capabilities, specs) {
+        //setBrowserOptions(browserSize, implicit, pageLoad, scriptLoad);
+        require('../utils/CustomCommands');
+      },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

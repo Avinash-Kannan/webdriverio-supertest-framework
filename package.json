@@ -18,7 +18,8 @@
         "perf_hooks": "0.0.1",
         "supertest": "^6.2.3",
         "wdio-aws-device-farm-service": "^7.0.3",
-        "wdio-chromedriver-service": "^7.3.2"
+        "wdio-chromedriver-service": "^7.3.2",
+        "wdio-native-app-compare-service": "^1.2.0"
     },
     "scripts": {
         "wdio": "wdio run wdio.conf.js",
@@ -37,6 +38,6 @@
         "poste2e-test-web": "npm run allure",
         "test-api-mochareports": "mocha **/**/api.test.js --reporter mochawesome --reporter-options reportDir=api-test/APITestReport,reportFilename=apiTest",
         "test-api": "rm -rf allure-results && mocha **/**/api.test.js -R allure-mocha || npm run allure",
-        "posttest-api" : "npm run allure"
+        "posttest-api": "npm run allure"
     }
 }
