@@ -1,3 +1,4 @@
+const { join } = require('path');
 exports.config = {
     //
     // ====================
@@ -124,7 +125,22 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    services: [
+        ['chromedriver'],[
+            'image-comparison',
+            // The options
+            {
+                // Mandatory
+                baselineFolder: join(process.cwd(), './test/visualRegression/web/image-baseline'),
+                formatImageName: "{tag}-{logName}-{width}x{height}",
+                screenshotPath: join(process.cwd(), './test/visualRegression/web/image-compare'),
+                autoSaveBaseline: true,
+                // Optional
+                savePerInstance: true,
+                blockOutStatusBar: true,
+                blockOutToolBar: true,
+            },]
+    ],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
@@ -226,18 +242,24 @@ exports.config = {
      * Hook that gets executed before the suite starts
      * @param {Object} suite suite details
      */
-    // beforeSuite: function (suite) {
+    // beforeSuite: async function () {
+
     // },
     /**
      * Function to be executed before a test (in Mocha/Jasmine) starts.
      */
-    // beforeTest: function (test, context) {
-    // },
+    beforeTest: async function () {
+        await browser.url(`https://www.saucedemo.com/`);
+        await browser.setWindowSize(1750,1080);
+        // browser.newWindow(`https://www.saucedemo.com/`, 
+        // { windowName : 'Swag Labs'
+        //     , windowFeatures: 'width=1750,height=1080' });
+    },
     /**
      * Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
      * beforeEach in Mocha)
      */
-    // beforeHook: function (test, context) {
+    // beforeHook: async function () {
     // },
     /**
      * Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
@@ -262,6 +284,8 @@ exports.config = {
         else {
             await browser.takeScreenshot();
         }
+        //browser.deleteSession(this.session);
+        //browser.closeWindow(this.window);
     },
 
 

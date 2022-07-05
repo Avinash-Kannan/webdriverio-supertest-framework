@@ -16,6 +16,12 @@ const Locators ={
         ios: '~test-Password',
         web: '//*[@placeholder="Password"]',
       },
+
+    productHeader : {
+        android: '//android.view.ViewGroup[@content-desc="test-Cart drop zone"]',
+        ios: '//XCUIElementTypeStaticText[@name="PRODUCTS"]',
+        web : '.title'
+    }
 };
 
 class LoginPage {
@@ -30,6 +36,7 @@ class LoginPage {
 
   async ClickLoginBtn() {
      await $(Locators.loginBtn).click();
+     await $(Locators.productHeader).isDisplayed();
   }
 
 };

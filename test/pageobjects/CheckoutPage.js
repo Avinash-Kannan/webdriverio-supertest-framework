@@ -1,4 +1,7 @@
+const testData = require('../utils/test-data.json');
 const MobileGestures= require('../utils/MobileGestures');
+const BasePage = require('./BasePage');
+
 const Locators ={
     btnContinue : {
         android: '~test-CONTINUE',
@@ -24,6 +27,11 @@ const Locators ={
         android: '~test-Zip/Postal Code',
         ios :'~test-Zip/Postal Code',
         web : '#postal-code',
+        },
+    orderSuccessMsg : {
+        android: '//android.widget.ScrollView[@content-desc="test-CHECKOUT: COMPLETE!"]/android.view.ViewGroup/android.widget.TextView[1]',
+        ios :'~THANK YOU FOR YOU ORDER',
+        web : '.complete-header',
         },
 };
 
@@ -53,6 +61,8 @@ class CheckoutPage {
     MobileGestures.SwipeUp();
     }
     await $(Locators.btnFinish).click();
+    await BasePage.verifyElementText(Locators.orderSuccessMsg,testData.orderSuccess, (driver.isIOS) ? 'name' : 'text');
+    await BasePage.visualRegression('OrderSuccessful');
  }
 
 };

@@ -115,8 +115,8 @@ exports.config = {
             // The options
             {
                 // Mandatory
-                baselineFolder: './test/visualRegression/image-baseline',
-                screenshotPath: './test/visualRegression/image-compare',
+                baselineFolder: './test/visualRegression/mobile/image-baseline',
+                screenshotPath: './test/visualRegression/mobile/image-compare',
                 autoSaveBaseline: false,
                 // Optional
                 blockOutStatusBar: true,
