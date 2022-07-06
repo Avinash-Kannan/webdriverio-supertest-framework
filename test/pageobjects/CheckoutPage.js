@@ -1,6 +1,8 @@
 const testData = require('../utils/test-data.json');
-const MobileGestures= require('../utils/MobileGestures');
 const BasePage = require('./BasePage');
+const MobileGestures= require('../utils/MobileGestures');
+
+// let runner = MobileFlow | WebFlow;
 
 const Locators ={
     btnContinue : {
@@ -54,15 +56,23 @@ class CheckoutPage {
      await browser.pause(2000); 
   }
 
-  async ClickonFinishBtn() {
-
+  async CheckoutProduct() {
+    await this.enterFirstName();
+    await this.enterLastName();
+    await this.enterZipCode();
+    await this.ClickonContinueBtn();
     if(driver.isMobile)
     {
     MobileGestures.SwipeUp();
     }
     await $(Locators.btnFinish).click();
+    // runner = await FlowManager.getInstance();
+    // await runner.FinishBtn(Locators.btnFinish);
+    
+ }
+
+ async ShouldHaveSuccessMsg() {
     await BasePage.verifyElementText(Locators.orderSuccessMsg,testData.orderSuccess, (driver.isIOS) ? 'name' : 'text');
-    await BasePage.visualRegression('OrderSuccessful');
  }
 
 };

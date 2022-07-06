@@ -34,7 +34,9 @@ class LoginPage {
     await $(Locators.password).setValue('secret_sauce');
   }
 
-  async ClickLoginBtn() {
+  async Login() {
+     await this.enterUsername();
+     await this.enterPassword();
      await $(Locators.loginBtn).click();
      await $(Locators.productHeader).isDisplayed();
   }

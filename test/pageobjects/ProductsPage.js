@@ -25,7 +25,8 @@ class ProductsPage {
     await BasePage.verifyElementText(Locators.iconCart,testData.productCount, attribute);
   }
 
-  async clickOnCartIcon() {
+  async OrderProduct() {
+    await this.addProducttoCart();
     await $(Locators.iconCart).click();
   }
 
