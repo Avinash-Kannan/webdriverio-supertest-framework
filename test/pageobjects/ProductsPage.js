@@ -21,8 +21,7 @@ class ProductsPage {
 
   async addProducttoCart() {
     await $(Locators.btnAddtoCart).click();
-    const attribute = (await driver.isIOS) ? 'name' : 'text';
-    await BasePage.verifyElementText(Locators.iconCart,testData.productCount, attribute);
+    await BasePage.verifyElementText(Locators.iconCart,testData.productCount);
   }
 
   async OrderProduct() {

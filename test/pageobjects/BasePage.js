@@ -1,17 +1,15 @@
 const expect = require('chai').expect;
+const FlowManager = require('../flow/FlowManager');
   
 class BasePage {
   
-    async verifyElementText(selector, expectedResult, attribute) {
-        if(driver.isMobile){
+    async verifyElementText(selector, expectedResult) {
+
             const element= await $(selector);
-            const attributeValue = await element.getAttribute(attribute);
+            const attributeValue = await (await FlowManager.getInstance()).getText(selector);
             expect(attributeValue).contains(expectedResult);
-            
-        } else{
-            expect(await $(selector).getText()).contains(expectedResult);
+        
         }
-     }
 
     async visualRegression(tagName) {
         var percent;

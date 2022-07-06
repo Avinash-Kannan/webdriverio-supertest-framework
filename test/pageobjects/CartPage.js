@@ -19,9 +19,10 @@ const Locators ={
 class CartPage {
 
   async ProceedToCheckout() {
-     await BasePage.verifyElementText(Locators.cartItemName,testData.productName, (driver.isIOS) ? 'name' : 'text');
+     await BasePage.verifyElementText(Locators.cartItemName,testData.productName);
      await $(Locators.btnCheckout).click();
   }
 
 };
+// export default CartPage;
 module.exports = new CartPage();
