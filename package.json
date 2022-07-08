@@ -40,5 +40,8 @@
         "test-api-mochareports": "mocha **/**/api.test.js --reporter mochawesome --reporter-options reportDir=api-test/APITestReport,reportFilename=apiTest",
         "test-api": "rm -rf allure-results && mocha **/**/api.test.js -R allure-mocha || npm run allure",
         "posttest-api": "npm run allure"
+    },
+    "dependencies": {
+        "implement-js": "0.0.31"
     }
 }

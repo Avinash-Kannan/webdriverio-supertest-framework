@@ -12,6 +12,10 @@ class AndroidFlow {
         return attributeValue;
 
     }
+
+    async setValue(selector, value) {
+        await $(selector).setValue(value);
+    }
   
   };
   module.exports =  AndroidFlow;

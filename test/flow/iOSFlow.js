@@ -12,6 +12,11 @@ class iOSFlow {
         return attributeValue;
 
     }
+
+    async setValue(selector, value) {
+
+        await $(selector).setValue(value+'\n');
+    }
   
   };
   module.exports =  iOSFlow;

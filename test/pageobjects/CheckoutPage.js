@@ -49,7 +49,7 @@ class CheckoutPage {
   }
 
   async enterZipCode() {
-    !(driver.isMobile) ? await $(Locators.zipCode).setValue('007') : await $(Locators.zipCode).setValue('007\n') ;
+    (await FlowManager.getInstance()).setValue(Locators.zipCode, '007');
   }
 
   async ClickonContinueBtn() {
@@ -62,13 +62,6 @@ class CheckoutPage {
     await this.enterLastName();
     await this.enterZipCode();
     await this.ClickonContinueBtn();
-    // if(driver.isMobile)
-    // {
-    // MobileGestures.SwipeUp();
-    // }
-    // await $(Locators.btnFinish).click();
-    // runner = await FlowManager.getInstance();
-    // await runner.FinishBtn(Locators.btnFinish);
     (await FlowManager.getInstance()).FinishBtn(Locators.btnFinish);
     
  }

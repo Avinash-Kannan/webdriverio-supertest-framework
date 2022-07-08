@@ -10,6 +10,11 @@ class WebFlow {
         return await attributeValue;
 
     }
+
+    async setValue(selector, value) {
+
+        await $(selector).setValue(value);
+    }
   
   };
 module.exports =  WebFlow;
